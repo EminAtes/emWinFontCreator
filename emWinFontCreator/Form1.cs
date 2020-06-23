@@ -97,11 +97,13 @@ namespace emWinFontCreator
             Graphics g = Graphics.FromImage(resultImage);
 
 
-            g.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
+            if (checkBox1.Checked)
+            {
+                g.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            }
             g.DrawString(textBox1.Text, textBox1.Font, Brushes.Black, rectf);
 
             g.Flush();
